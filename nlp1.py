@@ -4,9 +4,10 @@ from textblob.sentiments import NaiveBayesAnalyzer
 
 text = "Today is a beautiful day. Tomorrow looks like bad weather."
 #text = "You are the best."
+text2 = "Hey neighbors! We're having a birthday party friday night at nine thirty. If we're being too loud text us and we'll quiet down. Feel free to come say hi."
 
-
-blob = TextBlob(text)
+#blob = TextBlob(text)
+blob2 = TextBlob(text2)
 
 #print(blob.sentences)
 
@@ -19,12 +20,19 @@ blob = TextBlob(text)
 #print(round(blob.sentiment.polarity, 3))
 #print(round(blob.sentiment.subjectivity, 3))
 
+#print(round(blob2.sentiment.polarity, 3))
+#print(round(blob2.sentiment.subjectivity, 3))
+
+for sentence in blob2.sentences:
+    print(sentence)
+    print(round(sentence.sentiment.polarity, 3))
+
 '''
 for sentence in blob.sentences:
     print(sentence)
     print(round(sentence.sentiment.polarity, 3))
 '''
-
+'''
 blob = TextBlob(text, analyzer=NaiveBayesAnalyzer())
 
 #print(blob.sentiment)
@@ -92,3 +100,4 @@ print(synonym)
 
 antonym = happy.synsets[0].lemmas()[0].antonyms()[0].name()
 print(antonym)
+'''
